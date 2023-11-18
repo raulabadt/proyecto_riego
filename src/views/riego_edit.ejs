@@ -1,0 +1,89 @@
+<%- include('partials/_header'); -%>
+
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/update/<%= data.id %>" method="POST">
+            <input
+              type="text"
+              name="propietario"
+              value="<%= data.propietario %>"
+              placeholder="Propietario"
+              class="form-control mb-3"
+              autofocus
+            />
+            <input
+              type="text"
+              name="arrendatario"
+              value="<%= data.arrendatario%>"
+              placeholder="Arrendatario"
+              class="form-control mb-3"
+            />
+            
+            <input
+              type="text"
+              name="iban"
+              value="<%= data.iban%>"
+              placeholder="IBAN"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="text"
+              name="phone"
+              value="<%= data.phone%>"
+              placeholder="Phone"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="email"
+              name="address"
+              value="<%= data.address%>"
+              placeholder="Address"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="text"
+              name="parcela"
+              value="<%= data.parcela%>"
+              placeholder="Parcela"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="text"
+              name="superficie"
+              value="<%= data.superficie%>"
+              placeholder="Superficie"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="text"
+              name="euros"
+              value="<%= data.euros%>"
+              placeholder="Euros"
+              class="form-control mb-3"
+            />
+
+            <input
+              type="text"
+              name="uso"
+              value="<%= data.uso%>"
+              placeholder="Uso"
+              class="form-control mb-3"
+            />
+            
+            
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('partials/_footer'); -%>

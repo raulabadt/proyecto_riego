@@ -20,6 +20,7 @@ app.use(myConnection(mysql, {
     database: 'riego'
 }, 'single'));
 
+app.use(express.urlencoded({extended: false}));
 app.use('/', customerRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));

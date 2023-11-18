@@ -1,0 +1,124 @@
+<%- include('partials/_header'); -%>
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>n°</td>
+              <td> Propietario </td>
+              <td> Arrendatario </td>
+              <td> Iban </td>
+              <td> Phone </td>
+              <td> E-mail </td>
+              <td> Parcela </td>
+              <td> Superficie </td>
+              <td> Euros </td>
+              <td> Uso </td>
+              <td>Actualiza / Modifica </td>
+            </tr>
+          </thead>
+          <tbody>
+           <% if(data){%>
+            <% for(i=0; i<data.length; i++){%>
+                <tr>
+                    <td> <%= (i+1) %></td>
+                    <td> <%= data[i].propietario %></td>
+                    <td> <%= data[i].arrendatario %></td>
+                    <td> <%= data[i].iban %></td>
+                    <td> <%= data[i].phone %></td>
+                    <td> <%= data[i].address %></td>
+                    <td> <%= data[i].parcela %></td>
+                    <td> <%= data[i].superficie %></td>
+                    <td> <%= data[i].euros %></td>
+                    <td> <%= data[i].uso %></td>
+                    <td> 
+                        <a href="/delete/<%= data[i].id%>" class="btn btn-danger"> Borrar </a>
+                        <a href="/update/<%= data[i].id%>" class="btn btn-info"> Actualizar </a>
+                    </td>
+                </tr>
+                <%}%>
+           <%}%>           
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <form action="/add" method="POST">
+            <input
+              type="text"
+              name="propietario"
+              placeholder="Propietario"
+              class="form-control mb-2"
+              autofocus
+            />
+
+            <input
+              type="text"
+              name="arrendatario"
+              placeholder="Arrendatario"
+              class="form-control mb-2"
+              autofocus
+            />
+
+            <input
+            type="text"
+            name="iban"
+            placeholder="IBAN"
+            class="form-control mb-2"
+            autofocus
+          />
+
+          <input
+          type="text"
+          name="phone"
+          placeholder="Phone"
+          class="form-control mb-2"
+        />
+
+            <input
+              type="email"
+              name="address"
+              placeholder="E-Mail"
+              class="form-control mb-2"
+            />
+
+            <input
+            type="text"
+            name="parcela"
+            placeholder="Parcela"
+            class="form-control mb-2"
+          />
+
+          <input
+          type="text"
+          name="superficie"
+          placeholder="Superficie"
+          class="form-control mb-2"
+        />
+
+          <input
+          type="text"
+          name="euros"
+          placeholder="Euros"
+          class="form-control mb-2"
+        />
+
+        <input
+        type="text"
+        name="uso"
+        placeholder="Uso"
+        class="form-control mb-2"
+      />
+           
+  
+            <button type="submit" class="btn btn-info">Añadir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<%- include('partials/_footer'); -%>
