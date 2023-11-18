@@ -43,7 +43,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-5">
         <div class="card-body">
           <form action="/add" method="POST">
             <input
@@ -64,18 +64,26 @@
 
             <input
             type="text"
+            id = "iban"
             name="iban"
             placeholder="IBAN"
+            required pattern="[A-Z]{2}\d{2}[A-Z0-9]{1,30}"
             class="form-control mb-2"
             autofocus
           />
 
+          <p id="errorMensaje" style="color: red;"></p>
+
           <input
           type="text"
+          id = "telefono"
           name="phone"
-          placeholder="Phone"
+          required pattern="(\+34|0034|34)?[6-9]\d{8}"
+          placeholder="Telefono: +34612345678"
           class="form-control mb-2"
         />
+
+        <p id="errorTelefono" style="color: red;"></p>
 
             <input
               type="email"
@@ -117,8 +125,34 @@
           </form>
         </div>
       </div>
+      </div>
     </div>
   </div>
+
+  <script>
+    const ibanInput = document.getElementById('iban');
+    const errorMensaje = document.getElementById('errorMensaje');
+    const ibanRegex = /^[A-Z]{2}\d{2}[A-Z0-9]{1,30}$/;
+    const telefonoInput = document.getElementById('telefono');
+    const errorTelefono = document.getElementById('errorTelefono');
+    const telefonoRegex = /^(\+34|0034|34)?[6-9]\d{8}$/;
+    //comprobación de numero iban
+    ibanInput.addEventListener('input', function() {
+      if (ibanRegex.test(ibanInput.value)) {
+        errorMensaje.textContent = ''; // Limpiar el mensaje de error si el IBAN es válido
+      } else {
+        errorMensaje.textContent = 'El IBAN no es válido. Debe seguir el formato correcto.';
+      }
+    });
+    //comprobación de numero de telefono
+    telefonoInput.addEventListener('input', function() {
+      if (telefonoRegex.test(telefonoInput.value)) {
+        errorTelefono.textContent = ''; // Limpiar el mensaje de error si el teléfono es válido
+      } else {
+        errorTelefono.textContent = 'El teléfono no es válido. Debe seguir el formato español.';
+      }
+    });
+  </script>
   
 
 <%- include('partials/_footer'); -%>
