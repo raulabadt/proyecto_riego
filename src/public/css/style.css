@@ -1,0 +1,82 @@
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Color de fondo */
+}
+
+.container {
+  margin-top: 20px;
+}
+
+/* Estilo de la tabla */
+.table {
+  width: 100%;
+}
+
+navbar-brand{
+  text-align: center;
+}
+
+.table thead {
+  background-color: #343a40; /* Color de fondo del encabezado */
+  color: #ffffff; /* Color del texto del encabezado */
+}
+
+.table th,
+.table td {
+  text-align: center;
+}
+
+/* Estilo del formulario */
+.card-body {
+  background-color: #ffffff; /* Color de fondo del formulario */
+  padding: 20px;
+  border: 1px solid #dee2e6; /* Borde del formulario */
+  border-radius: 5px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+/* Estilo de los botones */
+.btn {
+  margin-right: 5px;
+}
+
+.btn-info {
+  background-color: #007bff; /* Color de fondo del botón de información */
+  border-color: #007bff;
+  color: #ffffff; /* Color del texto del botón de información */
+}
+
+.btn-info:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón por encima */
+  border-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Color de fondo del botón de peligro */
+  border-color: #dc3545;
+  color: #ffffff; /* Color del texto del botón de peligro */
+}
+
+.btn-danger:hover {
+  background-color: #bd2130; /* Color de fondo al pasar el ratón por encima */
+  border-color: #bd2130;
+}
+
+/* Alineación del formulario y la tabla */
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+  }
+
+  .col-md-8 {
+    order: 2; /* Cambia el orden para mover la tabla a la izquierda */
+  }
+
+  .col-md-4 {
+    order: 1; /* Cambia el orden para mover el formulario a la derecha */
+  }
+}

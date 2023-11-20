@@ -7,6 +7,8 @@ const app = express();
 
 const customerRoutes=require('./routes/riego');
 
+
+
 app.set('port', process.env.PORT||3000)
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +25,10 @@ app.use(myConnection(mysql, {
 app.use(express.urlencoded({extended: false}));
 app.use('/', customerRoutes);
 
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.listen(app.get('port'), ()=>{
     console.log('Server on port');
