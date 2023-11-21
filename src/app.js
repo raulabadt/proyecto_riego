@@ -4,6 +4,8 @@ const morgan = require ('morgan');
 const mysql = require ('mysql');
 const myConnection = require('express-myconnection');
 const app = express();
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
 
 const customerRoutes=require('./routes/riego');
 

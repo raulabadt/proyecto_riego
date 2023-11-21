@@ -4,10 +4,6 @@ body {
   background-color: #f8f9fa; /* Color de fondo */
 }
 
-.container {
-  margin-top: 20px;
-}
-
 /* Estilo de la tabla */
 .table {
   width: 100%;
@@ -66,17 +62,15 @@ navbar-brand{
   border-color: #bd2130;
 }
 
-/* Alineación del formulario y la tabla */
-@media (min-width: 768px) {
-  .row {
-    display: flex;
-  }
+.row{
+  flex-direction: row-reverse;
+}
 
-  .col-md-8 {
-    order: 2; /* Cambia el orden para mover la tabla a la izquierda */
-  }
+.col-md-9{
+  flex: 1;
+  overflow-x: scroll;
+}
 
-  .col-md-4 {
-    order: 1; /* Cambia el orden para mover el formulario a la derecha */
-  }
+.col-md-5{
+  flex: 1;
 }
