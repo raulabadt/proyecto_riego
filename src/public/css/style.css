@@ -62,9 +62,9 @@ a.navbar-brand{
   border-color: #bd2130;
 }
 
-.row{
+/* .row{
   flex-direction: row-reverse;
-}
+} */
 
 .col-md-9{
   flex: 1;

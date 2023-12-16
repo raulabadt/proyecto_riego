@@ -5,6 +5,7 @@ const router = express.Router();
 const riegoController=require('../controllers/riegoControllers');
 
 router.get('/', riegoController.list);
+router.get('/riego_add', riegoController.add);
 router.post('/add', riegoController.save);
 router.get('/exportarPDF', riegoController.exportarPDF);
 router.get('/delete/:id', riegoController.delete);

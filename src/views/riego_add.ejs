@@ -1,0 +1,116 @@
+<%- include('partials/_header'); -%>
+
+<div class="col-md-5 " >
+    <div class="card-body">
+      <form id="formulario" action="/add" method="POST">
+        <input
+          type="text"
+          name="propietario"
+          placeholder="Propietario"
+          class="form-control mb-2"
+          autofocus
+        />
+
+        <input
+          type="text"
+          name="arrendatario"
+          placeholder="Arrendatario"
+          class="form-control mb-2"
+          autofocus
+        />
+
+        <input
+        type="text"
+        id = "iban"
+        name="iban"
+        placeholder="IBAN"
+        required pattern="[A-Z]{2}\d{2}[A-Z0-9]{1,30}"
+        class="form-control mb-2"
+        autofocus
+      />
+
+      <p id="errorMensaje" style="color: red;"></p>
+
+      <input
+      type="text"
+      id = "telefono"
+      name="phone"
+      required pattern="(\+34|0034|34)?[6-9]\d{8}"
+      placeholder="Telefono: +34612345678"
+      class="form-control mb-2"
+    />
+
+    <p id="errorTelefono" style="color: red;"></p>
+
+        <input
+          type="email"
+          name="address"
+          placeholder="E-Mail"
+          class="form-control mb-2"
+        />
+
+        <input
+        type="text"
+        name="parcela"
+        placeholder="Parcela"
+        class="form-control mb-2"
+      />
+
+      <input
+      type="text"
+      name="superficie"
+      placeholder="Superficie"
+      class="form-control mb-2"
+    />
+
+      <input
+      type="number"
+      step="0.01" 
+      min="0"
+      name="euros"
+      placeholder="Euros"
+      class="form-control mb-2"
+    />
+
+    <input
+    type="text"
+    name="uso"
+    pattern="si|no"
+    placeholder="Ingresa 'si' o 'no'"
+    class="form-control mb-2"
+  />
+       
+
+        <button type="submit" class="btn btn-info">Añadir</button>
+       
+      </form>
+    </div>
+  </div>
+  <script>
+    const ibanInput = document.getElementById('iban');
+    const errorMensaje = document.getElementById('errorMensaje');
+    const ibanRegex = /^[A-Z]{2}\d{2}[A-Z0-9]{1,30}$/;
+    const telefonoInput = document.getElementById('telefono');
+    const errorTelefono = document.getElementById('errorTelefono');
+    const telefonoRegex = /^(\+34|0034|34)?[6-9]\d{8}$/;
+    //comprobación de numero iban
+    ibanInput.addEventListener('input', function() {
+      if (ibanRegex.test(ibanInput.value)) {
+        errorMensaje.textContent = ''; // Limpiar el mensaje de error si el IBAN es válido
+      } else {
+        errorMensaje.textContent = 'El IBAN no es válido. Debe seguir el formato correcto.';
+      }
+    });
+    //comprobación de numero de telefono
+    telefonoInput.addEventListener('input', function() {
+      if (telefonoRegex.test(telefonoInput.value)) {
+        errorTelefono.textContent = ''; // Limpiar el mensaje de error si el teléfono es válido
+      } else {
+        errorTelefono.textContent = 'El teléfono no es válido. Debe seguir el formato español.';
+      }
+    });
+   
+   
+  </script>
+
+  <%- include('partials/_footer'); -%>  

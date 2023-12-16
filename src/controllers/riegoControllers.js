@@ -17,6 +17,20 @@ controller.list = (req,res)=>{
     });
  }
  
+
+ controller.add = (req,res) =>{
+    const data = req.body;
+    req.getConnection((err,conn)=>{
+        conn.query('INSERT INTO tablariego set ?', [data], (err,riego)=>{
+            console.log(riego);
+            res.render('riego_add', { title: 'Añadir' });
+            
+        })
+
+    })
+    
+}
+
  controller.save = (req,res) =>{
      const data = req.body;
      req.getConnection((err,conn)=>{
