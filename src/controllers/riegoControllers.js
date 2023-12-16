@@ -82,7 +82,7 @@ controller.exportarPDF = (req, res) => {
             }
 
             // Crear un nuevo documento PDF
-            const doc = new PDFDocument({ margin: 30, size: 'A2' });
+            const doc = new PDFDocument({ layout: 'portrait' });
 
             // Crear una instancia de PDFDocumentWithTables y pasarle el documento PDF
             const pdfWithTables = new PDFDocumentWithTables({ pdf: doc });
@@ -93,14 +93,25 @@ controller.exportarPDF = (req, res) => {
             // Pipe PDFKit al flujo de respuesta
             pdfWithTables.pipe(stream);
 
+            // Establecer opciones de estilo para la tabla
+            const tableOptions = {
+                margins: { top: 50, bottom: 50, left: 50, right: 50 },
+                headerBackgroundColor: '#2c3e50',
+                headerColor: '#ecf0f1',
+                colors: ['#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'],
+                fontSize: 10,
+                fontColor: '#34495e',
+            };
+
             // Agregar contenido a partir de los datos utilizando pdfkit-table
             const dataTable = {
                 headers: ['Propietario', 'Arrendatario', 'Iban', 'Teléfono', 'Email', 'Euros', 'Uso'],
+                // rows: data.map(item => [item.propietario, item.arrendatario, item.iban, item.phone, item.address, item.euros, item.uso]),
                 rows: data.map(item => [item.propietario, item.arrendatario, item.iban, item.phone, item.address, item.euros, item.uso]),
             };
 
-            // Crear la tabla y agregarla al documento
-            pdfWithTables.table(dataTable, { width: 500, prepareHeader: () => pdfWithTables.font('Helvetica-Bold'), prepareRow: (row, i) => pdfWithTables.font('Helvetica').fontSize(12) });
+            // Crear la tabla y agregarla al documento con opciones de estilo
+            pdfWithTables.table(dataTable, tableOptions);
 
             // Finalizar el documento y cerrar el flujo
             pdfWithTables.end();

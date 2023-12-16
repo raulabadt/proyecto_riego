@@ -9,7 +9,7 @@ body {
   width: 100%;
 }
 
-navbar-brand{
+a.navbar-brand{
   text-align: center;
 }
 
@@ -68,9 +68,12 @@ navbar-brand{
 
 .col-md-9{
   flex: 1;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
-.col-md-5{
-  flex: 1;
-}
+
+/* 
+#formulario{
+  display: none;
+} */
+
