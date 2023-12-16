@@ -9,6 +9,7 @@
             <input
             type="text"
             name="propietario"
+            value="<%= data.propietario %>"
             placeholder="Propietario"
             class="form-control mb-2"
             autofocus
@@ -17,6 +18,7 @@
           <input
             type="text"
             name="arrendatario"
+            value="<%= data.arrendatario %>"
             placeholder="Arrendatario"
             class="form-control mb-2"
             autofocus
@@ -26,6 +28,7 @@
           type="text"
           id = "iban"
           name="iban"
+          value="<%= data.iban %>"
           placeholder="IBAN"
           required pattern="[A-Z]{2}\d{2}[A-Z0-9]{1,30}"
           class="form-control mb-2"
@@ -38,6 +41,7 @@
         type="text"
         id = "telefono"
         name="phone"
+        value="<%= data.phone %>"
         required pattern="(\+34|0034|34)?[6-9]\d{8}"
         placeholder="Telefono: +34612345678"
         class="form-control mb-2"
@@ -48,6 +52,7 @@
           <input
             type="email"
             name="address"
+            value="<%= data.address %>""
             placeholder="E-Mail"
             class="form-control mb-2"
           />
@@ -55,6 +60,7 @@
           <input
           type="text"
           name="parcela"
+          value="<%= data.parcela %>"
           placeholder="Parcela"
           class="form-control mb-2"
         />
@@ -62,6 +68,7 @@
         <input
         type="text"
         name="superficie"
+        value="<%= data.superficie %>"
         placeholder="Superficie"
         class="form-control mb-2"
       />
@@ -71,6 +78,7 @@
         step="0.01" 
         min="0"
         name="euros"
+        value="<%= data.euros %>"
         placeholder="Euros"
         class="form-control mb-2"
       />
@@ -78,6 +86,7 @@
       <input
       type="text"
       name="uso"
+      value="<%= data.uso %>"
       pattern="si|no"
       placeholder="Ingresa 'si' o 'no'"
       class="form-control mb-2"
